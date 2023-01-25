@@ -1,0 +1,20 @@
+<h1 align="center">Recipe Name: <%= @recipe.name.capitalize %></h1>
+<hr/>
+<div class="container">
+<div class="row">
+<div class="col-md-8 offset-md-2"> 
+  <div class="p-4 mb-3 bg-secondary text-black">
+ <h4 class="center description"><strong>Description: </strong> </h4>
+ <hr/>
+ <%= @recipe.description %>
+
+ <p> Created by: </p>
+ <p>
+ <small><%= @recipe.chef.chefname %></small>
+ <div class="d-flex justify-content-end">Created: <%= time_ago_in_words(@recipe.created_at) %>  ago</div>
+  </p>
+</div>
+ 
+</div>
+</div>
+</div>
