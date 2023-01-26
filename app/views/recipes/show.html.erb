@@ -1,20 +1,30 @@
-<h1 align="center">Recipe Name: <%= @recipe.name.capitalize %></h1>
-<hr/>
+<%= render 'shared/page_title', title: @recipe.name %>
 <div class="container">
 <div class="row">
 <div class="col-md-8 offset-md-2"> 
   <div class="p-4 mb-3 bg-secondary text-black">
- <h4 class="center description"><strong>Description: </strong> </h4>
+ <h4 class="center description"><strong>Steps: </strong> </h4>
  <hr/>
- <%= @recipe.description %>
+ <%= simple_format(@recipe.description) %>
+ <hr/>
 
- <p> Created by: </p>
- <p>
- <small><%= @recipe.chef.chefname %></small>
- <div class="d-flex justify-content-end">Created: <%= time_ago_in_words(@recipe.created_at) %>  ago</div>
+ <div class="float-right">
+
+  <p class="d-flex justify-content-end center">
+    <em>Created by:</em>
   </p>
-</div>
- 
+  <p class="d-flex justify-content-end">
+    <%= link_to gravatar_for(@recipe.chef),recipes_path %>
+  </p>
+
+  <p class="d-flex justify-content-end">
+     <small><%= @recipe.chef.chefname.capitalize %></small>
+      <div class="d-flex justify-content-end">Created: <%= time_ago_in_words(@recipe.created_at) %>  ago</div>
+  </p>
+
+ </div>
+
+ </div>
 </div>
 </div>
 </div>
