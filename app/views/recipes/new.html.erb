@@ -1,4 +1,29 @@
 <%= render 'shared/page_title', title: "create a new recipe" %>
+
+<% if @recipe.errors.any? %>
+
+<div class="row mb-3">
+  <div class="col-md-6 offset-md-3">
+    <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">
+            <%= pluralize(@recipe.errors.count,"error") %>
+            prohibted this <%= @recipe.class %> from being saved:
+          </h2>
+          <div class="card-body">
+            <ul>
+            <% @recipe.errors.full_messages.each do |msg| %>
+             <li> <%= msg %> </li>
+             <%end%>
+             </ul>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+<%end%>
+
+
 <div class="row">
 	<div class="col-md-12">
 
