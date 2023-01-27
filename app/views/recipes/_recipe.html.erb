@@ -1,0 +1,26 @@
+<% obj.each do |recipe| %>
+<div class="container">
+<div class="row">
+<div class="col-md-2">
+ <section class="chef_info center">
+   <%= gravatar_for(recipe.chef, size: 120) %>
+   
+ </section>
+</div>
+
+<div class="col-md-8"> 
+  
+  <div class="p-3 mb-2 bg-light grey text-black">
+ <h4> <%= link_to recipe.name , recipe_path(recipe) %> </h4>
+ <p> <%= truncate(recipe.description, length: 150) %> </p>
+  <p>
+   <span class="quiet"> <small> Created <%= time_ago_in_words(recipe.created_at) %> ago </small></span>
+</p>
+</div>
+ 
+</div>
+</div>
+</div>
+
+<%end%>
+

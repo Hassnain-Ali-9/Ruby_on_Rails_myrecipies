@@ -18,6 +18,8 @@ def create
 
 
   def show
+   @chef = Chef.find(params[:id])
+
   end
 
 
