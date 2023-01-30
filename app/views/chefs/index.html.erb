@@ -1,0 +1,27 @@
+<%= render 'shared/page_title', title: "Showing all chefs" %>
+<div class="container">
+
+<div class="row">
+
+
+<div align="center">
+  
+ <% @chefs.each do |chef| %>
+  <ul class="no-bullets">
+    <div class="p-5 mb-2 bg-light grey text-black">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <li><%= link_to gravatar_for(chef), chef_path(chef)%></li>
+        <li><%= link_to chef.chefname.capitalize, chef_path(chef) %></li>
+        <li><small><%= pluralize(chef.recipes.count, "recpie") if chef.recipes %> </small></li>
+      </div> 
+    </div>
+  </hr>
+  </ul>
+ <%end%>
+</div>
+</div>
+</div>
+</div>
+
+
